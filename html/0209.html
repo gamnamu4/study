@@ -7,23 +7,90 @@
   <title>slick slider 사용법 및  커스텀 css 변경</title>
   <!-- jquery cdn -->
   <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-  <!-- slick.js -->
+  <!-- slick.js
   <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-  <!-- <link rel="stylesheet" href="slick/slick.css">
-  <script src="slick/slick.js"></script> -->
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> -->
+  <link rel="stylesheet" href="/js/slick/slick.css">
+  <link rel="stylesheet" href="/js/slick/slick-theme.css">
+  <script src="/js/slick/slick.js"></script>
+  <style>
+    body {
+      background-color: wheat;
+      margin: 0;
+    }
+    .myslider {
+      width: 800px;
+      margin: auto;
+    }
+    .myslider div {
+      border: 1px solid #000;
+      height: 300px;
+      background-color: darkcyan;
+      font-size: 30px;
+    }
+    .myslider .slick-arrow  {
+      border: 1px solid  #000;
+      display: none !important;
+    }
 
+    @media (max-width:  768px) {
+      .myslider {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
   
   <div class="myslider">
-    <div>your content</div>
-    <div>your content</div>
-    <div>your content</div>
+    <div>slide content 01</div>
+    <div>slide content 012</div>
+    <div>slide content 013</div>
+    <div>slide content 014</div>
+    <div>slide content 015</div>
+    <div>slide content 016</div>
   </div>
 
   <script>
-    $('.myslider').slick();
+    $('.myslider').slick({
+      infinite: true,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 2000,
+      fade: true,
+      speed: 500,
+      cssEase: 'linear',
+      dots: true,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+        // You can unslick at a given breakpoint now by adding:
+        // settings: "unslick"
+        // instead of a settings object
+      ]
+        });
   </script>
 
 </body>
